@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * Created by smurphy on 2/16/2017.
  */
 class MoneyTest {
+/*    @Test
+    void testArrayEquals() {
+        assertEquals(new Object[] {"abc"}, new Object[] {"abc"});
+    }*/
+
     @Test
     void testCurrency() {
         assertEquals("USD", Money.dollar(1).currency());
@@ -16,6 +21,11 @@ class MoneyTest {
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(6)));
         assertFalse(Money.franc(5).equals(Money.dollar(5)));
+    }
+
+    @Test
+    public void testIdentityRate() {
+        assertEquals(1, new Bank().rate("USD", "USD"));
     }
 
     @Test
